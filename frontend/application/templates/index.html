@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block body %}
+<br><br>
+<form action='' method='POST'>
+    {{form.hidden_tag()}}
+    {{ form.ticker.label }} {{ form.ticker }} <br><br>
+    {{form.submit}}
+</form>
+
+
+
+ 
+<form action="{{ url_for('get_prediction') }}">
+            <input type=submit value="Get last 5 Predictions">
+</form>
+
+{% endblock body %}

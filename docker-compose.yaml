@@ -1,0 +1,48 @@
+version: '3.8'
+services:
+  database:
+    container_name: database
+    image: sfia-database:latest
+    build: ./db
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DATABASE_PASSWORD}
+    volumes:
+    - type: volume
+      source: sfia-db-volume
+      target: /var/lib/mysql
+  frontend:
+    container_name: frontend
+    build: ./frontend
+    image: python-frontend:latest
+    depends_on:
+    - "database"
+    environment:
+      SECRET_KEY: ${SECRET_KEY}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+    ports:
+    - target: 5000
+      published: 5000
+  backend1:
+    container_name: backend1
+    build: ./backend1
+    image: python-backend1:latest
+    ports:
+    - target: 5001
+      published: 5001
+  backend2:
+    container_name: backend2
+    build: ./backend2
+    image: python-backend2:latest
+    ports:
+    - target: 5002
+      published: 5002
+  backend3:
+    container_name: backend3
+    build: ./backend3
+    image: python-backend3:latest
+    ports:
+    - target: 5003
+      published: 5003
+volumes: 
+  sfia-db-volume:
+  

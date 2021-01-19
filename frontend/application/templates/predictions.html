@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+{% block body %}
+<h2>Previous 5 results</h2>
+        {% for result in final_results %}
+            {{ result.final_result }}
+        {% endfor %}
+{% endblock body %}
