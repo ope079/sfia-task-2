@@ -1,16 +1,9 @@
 ---
-- name: add jenkins user
-    user:
-      name: jenkins
-      groups: docker
-      shell: /bin/bash
-      append: true
-
-- name: config | Configuring NGNIX Load Balancer
-  template:
-    src: main/nginx/nginx.conf
-    dest: /etc/nginx/nginx.conf
-    owner: root
-    group: root
-    mode: u=rw,g=r,o=r
-  notify: restart nginx
+    - name: config | Configuring NGNIX Load Balancer
+      template:
+        src: main/nginx/nginx.conf
+        dest: /etc/nginx/nginx.conf
+        owner: root
+        group: root
+        mode: u=rw,g=r,o=r
+      notify: restart nginx
