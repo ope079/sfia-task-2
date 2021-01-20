@@ -28,5 +28,8 @@ services:
   nginx:
     container_name: nginx
     image: nginx:latest
+    ports:
+    - target: 80
+      protocol: tcp
 
   
