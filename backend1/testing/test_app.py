@@ -41,7 +41,7 @@ class TestResponse(TestBase):
             m("GET", url, headers=headers, params=querystring).return_value.csv = 'test.csv'
             
             response = self.client.get(url_for('get_prediction1'))    
-            self.assertIn(b'100000', response.data)
+            self.assertIn(b'1', response.data)
 
                 
                 
