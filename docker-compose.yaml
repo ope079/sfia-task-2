@@ -23,7 +23,7 @@ services:
   backend3:
     container_name: backend3
     build: ./backend3
-    image: python-backend3:latest
+    image: ope079/python-frontend:latest
 
 
   
