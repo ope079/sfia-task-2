@@ -24,6 +24,9 @@ services:
     container_name: backend3
     build: ./backend3
     image: ope079/python-frontend:latest
-    
+
+  nginx:
+    container_name: nginx
+    image: nginx:latest
 
   
