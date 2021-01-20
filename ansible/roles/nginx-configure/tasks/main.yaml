@@ -1,4 +1,9 @@
 ---   
+    - name: 'Install NGINX'
+      apt:
+        name: nginx
+        state: latest
+        update_cache: true
     - name: config | Configuring NGNIX Load Balancer
       template:
         src: main/nginx/nginx.conf
