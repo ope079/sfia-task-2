@@ -28,6 +28,7 @@ services:
   nginx:
     container_name: nginx:load-balancer 
     build: ./nginx
+    image: nginx:alpine
     ports:
     - "80:80"
     depends_on:
