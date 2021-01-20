@@ -9,7 +9,7 @@ services:
       SECRET_KEY: ${SECRET_KEY}
     ports:
     - target: 5000
-      published: 80
+      published: 5000
   backend1:
     container_name: backend1
     build: ./backend1
