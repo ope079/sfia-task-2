@@ -9,7 +9,7 @@ services:
       SECRET_KEY: ${SECRET_KEY}
     ports:
     - target: 5000
-      published: 80
+      published: 5000
   backend1:
     container_name: backend1
     build: ./backend1
@@ -25,14 +25,14 @@ services:
     build: ./backend3
     image: ope079/python-frontend:latest
   
-  nginx:
-    container_name: nginx:alpine 
-    build: ./nginx
-    image: ope079/nginx:alpine
-    ports:
-    - "80:80"
-    depends_on:
-    - frontend
-    - backend1
-    - backend2
-    - backend3
+#  nginx:
+ #   container_name: nginx:alpine 
+  #  build: ./nginx
+   # image: ope079/nginx:alpine
+    #ports:
+    #- "80:80"
+  #  depends_on:
+   # - frontend
+  #  - backend1
+  #  - backend2
+  #  - backend3
