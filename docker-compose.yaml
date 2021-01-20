@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   frontend:
-    container_name: frontend
+    container_name: sfia-task-2_frontend
     build: ./frontend
     image: ope079/python-frontend:latest
     environment:
@@ -10,18 +10,19 @@ services:
     ports:
     - target: 5000
       published: 5000
+      protocol: tcp
   backend1:
-    container_name: backend1
+    container_name: sfia-task-2_backend1
     build: ./backend1
     image: ope079/python-backend1:latest
    
   backend2:
-    container_name: backend2
+    container_name: sfia-task-2_backend2
     build: ./backend2
     image: ope079/python-backend2:latest
     
   backend3:
-    container_name: backend3
+    container_name: sfia-task-2_backend3
     build: ./backend3
     image: ope079/python-frontend:latest
   
