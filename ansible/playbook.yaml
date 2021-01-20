@@ -3,16 +3,18 @@
   become: true
   hosts: managers
   roles:
+    - nginx
     - docker
     - docker-swarm-init
-    - nginx
+    
 - name: add workers to swarm
   become: true
   hosts: workers
   roles:
+    - nginx
     - docker
     - docker-swarm-workers
-    - nginx
+    
 - name: start nginx
   become: true
   hosts: nginx
