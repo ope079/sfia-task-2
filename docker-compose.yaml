@@ -14,7 +14,7 @@ services:
     container_name: backend1
     build: ./backend1
     image: ope079/python-backend1:latest
-    
+   
   backend2:
     container_name: backend2
     build: ./backend2
@@ -24,12 +24,14 @@ services:
     container_name: backend3
     build: ./backend3
     image: ope079/python-frontend:latest
-
-  nginx:
-    container_name: nginx
-    image: nginx:latest
-    ports:
-    - target: 80
-      protocol: tcp
-
   
+  nginx:
+    container_name: nginx:load-balancer 
+    build: ./nginx
+    ports:
+    - "80:80"
+    depends_on:
+    - frontend
+    - backend1
+    - backend2
+    - backend3
