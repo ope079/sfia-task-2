@@ -26,9 +26,9 @@ services:
     image: ope079/python-frontend:latest
   
   nginx:
-    container_name: nginx:load-balancer 
+    container_name: nginx:alpine 
     build: ./nginx
-    image: nginx:alpine
+    image: ope079/nginx:alpine
     ports:
     - "80:80"
     depends_on:
