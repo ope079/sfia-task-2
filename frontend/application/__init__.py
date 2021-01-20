@@ -8,7 +8,7 @@ db = SQLAlchemy(app)
 
 app.config['SECRET_KEY'] = getenv("SECRET_KEY")
 
-app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://root:{getenv("DATABASE_PASSWORD")}@10.116.0.3:3306/flaskdb'
+app.config['SQLALCHEMY_DATABASE_URI'] = getenv("DATABASE_URI")
 
 
 
