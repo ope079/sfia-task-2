@@ -1,3 +1,14 @@
+- name: "Uninstall NginX"
+  apt:
+    name: nginx
+    state: absent
+
+- name: "Stop Nginx Services"
+  service:
+    name: nginx
+    state: stopped
+
+
 - name: Install NGINX
   apt:
     name: nginx
