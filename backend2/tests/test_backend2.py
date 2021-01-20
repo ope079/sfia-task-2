@@ -4,6 +4,7 @@ from flask_testing import TestCase
 from unittest.mock import patch
 
 from application import app
+from application.routes import get_prediction2
 from os import getenv
 
 class TestBase(TestCase):

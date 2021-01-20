@@ -5,6 +5,7 @@ from flask_testing import TestCase
 from unittest.mock import patch
 
 from application import app
+from apllication.routes import final_result
 from os import getenv
 
 class TestBase(TestCase):

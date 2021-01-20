@@ -19,4 +19,4 @@ pip3 install -r requirements.txt
 pip3 install pytest pytest-cov
 
 # Run pytest
-pytest frontend backend1 backend2 backend3 --cov=frontend/application --cov=backend1/application --cov=backend2/application --cov=backend3/application  --cov-report xml --cov-report term-missing --junitxml junit.xml
+pytest --cov=application  --cov-report xml --cov-report term-missing --junitxml junit.xml
