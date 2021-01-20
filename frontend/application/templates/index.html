@@ -7,9 +7,13 @@
     {{form.submit}}
 </form>
 
-
-
- 
+<h2>Last Result</h2>
+    {% for res in result %}
+        {{ res.final_result }}
+    {% endfor %}
+<br>
+<br>
+<h2>Last 5 Results</h2>
 <form action="{{ url_for('get_prediction') }}">
             <input type=submit value="Get last 5 Predictions">
 </form>

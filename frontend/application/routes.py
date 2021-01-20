@@ -5,13 +5,13 @@ from flask import render_template, request, redirect, url_for
 import requests
 import json
 
-'''
+
 @app.route('/')
 def home():
     form = Form()
-    #final_results = Predictions.query.limit(5).all
-    return render_template("index.html", title="Home", form=form)
-'''
+    result = Predictions.query.order_by(Predictions.id.desc()).limit(1).all()
+    return render_template("index.html", title="Home", form=form, result=result)
+
 
 @app.route('/', methods=['GET', 'POST'])
 def post_prediction():
@@ -30,12 +30,12 @@ def post_prediction():
     new_prediction = Predictions(final_result=str(final_result.json()))
     db.session.add(new_prediction)
     db.session.commit()
-    return redirect(url_for("home", final_results = final_results, form = Form()))
+    return redirect(url_for("home", form = form))
 
 
 
 @app.route('/get_prediction', methods=['GET','POST'])
 def get_prediction():
     form = Form()
-    final_results = Predictions.query.limit(5).all()
-    return render_template("predictions.html", final_results = final_results, form = Form())
+    final_results = Predictions.query.order_by(Predictions.id.desc()).limit(5).all()
+    return render_template("predictions.html", final_results = final_results, form = form)

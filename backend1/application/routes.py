@@ -11,8 +11,8 @@ from statsmodels.tsa.statespace.sarimax import SARIMAX
 @app.route('/get_prediction1', methods=['GET', 'POST'])
 def get_prediction1():
     url = "https://alpha-vantage.p.rapidapi.com/query"
-    #ticker =request.data.decode("utf-8")
-    ticker = "FB"
+    ticker =request.data.decode("utf-8")
+    #ticker = "FB"
     querystring = {"function":"TIME_SERIES_DAILY","symbol":f'{ticker}',"outputsize":"compact","datatype":"csv"}
     headers = {
             'x-rapidapi-key': "12226b39a9mshfa23fe1cdb616ccp10fb0bjsnd8f20f98485c",

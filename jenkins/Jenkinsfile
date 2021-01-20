@@ -1,0 +1,39 @@
+pipeline{
+    agent any
+    environment{
+        VERSION = "1.${BUILD_ID}"
+        DATABASE_URI = credentials("DATABASE_URI")
+        TEST_SECRET_KEY = "test"
+        CHROMEDRIVER_PATH = "/home/jenkins/chromedriver"
+        AUTHOR = "ope079"
+        SECRET_KEY = credentials("SECRET_KEY")
+    }
+    stages{
+        stage("Test"){
+            steps{
+                sh "bash jenkins/test.sh"
+            }
+        }
+        stage("Build and Push Images"){
+            steps{
+                sh "bash jenkins/build_images.sh"
+            }
+        }
+        stage("Configuration Management"){
+            steps{
+                sh "cd ansible && /home/jenkins/.local/bin/ansible-playbook -i inventory playbook.yaml"
+            }
+        }
+        stage("Deploy"){
+            steps{
+                sh "bash jenkins/deploy_stack.sh"
+            }
+        }
+    }
+    post {
+        always {
+            junit 'junit.xml'
+            cobertura coberturaReportFile: 'coverage.xml', failNoReports: false
+        }
+    }
+}
