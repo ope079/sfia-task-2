@@ -10,3 +10,4 @@ flask-wtf
 requests
 statsmodels
 pandas
+requests_mock
