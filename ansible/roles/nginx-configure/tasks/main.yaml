@@ -1,10 +1,10 @@
 ---
 - name: add jenkins user
-      user:
-        name: jenkins
-        groups: docker
-        shell: /bin/bash
-        append: true
+    user:
+      name: jenkins
+      groups: docker
+      shell: /bin/bash
+      append: true
 
 - name: config | Configuring NGNIX Load Balancer
   template:
@@ -13,5 +13,4 @@
     owner: root
     group: root
     mode: u=rw,g=r,o=r
-  become: true
   notify: restart nginx

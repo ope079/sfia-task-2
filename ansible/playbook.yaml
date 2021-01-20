@@ -15,7 +15,7 @@
     - nginx
 - name: install nginx
   become: true
-  hosts: nginx-load-balancer
+  hosts: nginx
   roles:
     - nginx
     - nginx-configure
