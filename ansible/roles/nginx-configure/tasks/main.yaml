@@ -1,10 +1,4 @@
----
-    - name: add jenkins user
-      user:
-        name: jenkins
-        groups: docker
-        shell: /bin/bash
-        append: true    
+---   
     - name: config | Configuring NGNIX Load Balancer
       template:
         src: main/nginx/nginx.conf
