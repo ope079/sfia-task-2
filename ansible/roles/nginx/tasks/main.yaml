@@ -8,7 +8,7 @@
 
 - name: Install NGINX
   apt:
-    name: nginx:Alpine
+    name: nginx:alpine
     state: latest
     update_cache: true
 
