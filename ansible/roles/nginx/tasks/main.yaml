@@ -3,10 +3,7 @@
     name: nginx
     state: latest
     update_cache: true
-- name: Copy nginx.conf
-  copy:
-    src: /home/jenkins/.jenkins/workspace/sfia-project-2/nginx/nginx.conf
-    dest: /etc/nginx/nginx.conf
+
 - name: Start NGINX Service
   service:
     name: nginx
