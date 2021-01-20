@@ -1,18 +1,5 @@
-- name: add jenkins user
-  user:
-    name: jenkins
-    groups: docker
-    shell: /bin/bash
-    append: true
-
-
 - name: Install NGINX
   apt:
     name: nginx
     state: latest
     update_cache: true
-
-- name: Start NGINX Service
-  service:
-    name: nginx
-    state: reloaded
