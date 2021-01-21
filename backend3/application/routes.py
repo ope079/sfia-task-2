@@ -1,5 +1,5 @@
 from application import app
-from flask import request, jsonify
+from flask import request, jsonify, Response
 import requests
 
 
@@ -27,9 +27,6 @@ def get_final_result():
             random_state = "buy" 
     else:
             random_state = "sell"
-    final_result = {"Current price movement" : f"{real_state} at actual price {current_price}", 
-    "Time series advice" : f"{time_series_state} at price {prediction1}", 
-    "Random advice" : f"{random_state} at price {prediction2}", 
-    "Previous price" : f"{previous_price}"}
+    final_result = f"Current price movement : {real_state} at actual price {current_price}, Time series advice : {time_series_state} at price {prediction1}, Random advice : {random_state} at price {prediction2}, Previous price : {previous_price}"
 
-    return jsonify(final_result)
+    return Response(final_result,  mimetype='text/plain')

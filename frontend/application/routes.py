@@ -17,17 +17,17 @@ def home():
 def post_prediction():
     form = Form()
     ticker = form.ticker.data
-    price_prediction = requests.get('http://backend1:5001/get_prediction1', data=ticker).json()
+    price_prediction = requests.get('http://sfia-task-2_backend1:5001/get_prediction1', data=ticker).json()
     #price_prediction = json.loads(price_prediction)
     current_price = price_prediction['response'][0]
     sd = price_prediction['response'][1]
     price_list = [current_price, sd]
     prediction1 = price_prediction["response"][2]
     previous_price = price_prediction["response"][3]
-    prediction2 = requests.get('http://backend2:5002/get_prediction2', json={"price":price_list})
+    prediction2 = requests.get('http://sfia-task-2_backend2:5002/get_prediction2', json={"price":price_list})
     prediction2 = float(prediction2.json())
-    final_result = requests.get('http://backend3:5003/final_result', json= {"price":[prediction1,prediction2,current_price,previous_price]})
-    new_prediction = Predictions(final_result=str(final_result.json()))
+    final_result = requests.get('http://sfia-task-2_backend3:5003/final_result', json= {"price":[prediction1,prediction2,current_price,previous_price]})
+    new_prediction = Predictions(final_result=final_result.text)
     db.session.add(new_prediction)
     db.session.commit()
     return redirect(url_for("home", form = form))

@@ -10,13 +10,40 @@ mkdir $CHROMEDRIVER_PATH
 wget -P $CHROMEDRIVER_PATH https://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.zip
 unzip $CHROMEDRIVER_PATH/chromedriver_linux64.zip -d /home/jenkins/chromedriver
 
-# Create/activate Python virtual environment
+# Test frontend
+cd frontend
 python3 -m venv venv
 source venv/bin/activate
-
-# Install pip requirements
 pip3 install -r requirements.txt
-pip3 install pytest pytest-cov
-
-# Run pytest
+pip3 install pytest pytest-cov flask_testing
 pytest --cov=application  --cov-report xml --cov-report term-missing --junitxml junit.xml
+deactivate
+
+# Test backend1
+cd backend1
+python3 -m venv venv
+source venv/bin/activate
+pip3 install -r requirements.txt
+pip3 install pytest pytest-cov flask_testing
+pytest --cov=application  --cov-report xml --cov-report term-missing --junitxml junit.xml
+deactivate
+
+# Test backend2
+cd backend2
+python3 -m venv venv
+source venv/bin/activate
+pip3 install -r requirements.txt
+pip3 install pytest pytest-cov flask_testing
+pytest --cov=application  --cov-report xml --cov-report term-missing --junitxml junit.xml
+deactivate
+
+
+# Test backend3
+cd backend3
+python3 -m venv venv
+source venv/bin/activate
+pip3 install -r requirements.txt
+pip3 install pytest pytest-cov flask_testing
+pytest --cov=application  --cov-report xml --cov-report term-missing --junitxml junit.xml
+deactivate
+

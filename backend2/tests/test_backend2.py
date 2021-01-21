@@ -1,7 +1,7 @@
 import unittest
-from flask import url_for
+from flask import url_for, request, Response
 from flask_testing import TestCase
-from unittest.mock import patch
+from unittest.mock import patch, Mock
 
 from application import app
 from application.routes import get_prediction2
@@ -15,9 +15,6 @@ class TestResponse(TestBase):
 
     def test_prediction2(self):
         with patch('random.uniform') as m:
-            price_list = [1,1]
-            sd = (price_list[1])
-            current_price = (price_list[0])
-            m((current_price - sd),(current_price + sd)).return_value = 1
-            response = self.client.get(url_for('get_prediction2'))
-            self.assertIn(b"1", response.data)
+            m.return_value = 1000
+            response = self.client.post(url_for("get_prediction2"), json={"price" : [7,7,7,7]})
+            self.assertIn(b"1000", response.data)

@@ -1,48 +1,32 @@
 import unittest
 from flask import url_for
 from flask_testing import TestCase
-from unittest.mock import patch
-from io import StringIO
-from csv import reader 
+import unittest.mock
+from unittest.mock import patch, mock_open, MagicMock, call
+import io
+import csv 
 import builtins
+import mock
+import random
+import numpy as np
 
 from application import app
 from application.routes import get_prediction1
+from statsmodels.tsa.arima.model import ARIMA
 import pandas as pd
+import requests_mock
 
 class TestBase(TestCase):
     def create_app(self):
         return app
 
-
+d1 = pd.read_csv('/home/o_ore/sfia-task-2/backend1/tests/FB1.csv', header=0)
+value = open('/home/o_ore/sfia-task-2/backend1/tests/FB1.csv', 'rb')
 
 class TestResponse(TestBase):
     def test_get_pred(self):
-        
-        url = "https://alpha-vantage.p.rapidapi.com/query"
-        ticker = "FB"
-        querystring = {"function":"TIME_SERIES_DAILY","symbol":ticker,"outputsize":"compact","datatype":"csv"}
-        headers = {
-            'x-rapidapi-key': "12226b39a9mshfa23fe1cdb616ccp10fb0bjsnd8f20f98485c",
-            'x-rapidapi-host': "alpha-vantage.p.rapidapi.com"
-            }
-        #response = requests.request("GET", url, headers=headers, params=querystring)
+        with patch('pandas.read_csv') as m:
+            m.return_value = d1
+            response = self.client.get(url_for("get_prediction1"))
+            self.assertIn(b'{"response":[268.69,10.967697831802086,272.114249373302,271.07]}', response.data)
 
-        
-        csv = StringIO("""\
-        date,open,close
-        1,1,1
-        1,1,1
-        1,1,1""")
-        
-        
-        
-        with patch('requests.request') as m:
-            m("GET", url, headers=headers, params=querystring).return_value.csv = 'test.csv'
-            
-            response = self.client.get(url_for('get_prediction1'))    
-            self.assertIn(b'1', response.data)
-
-                
-                
-            
