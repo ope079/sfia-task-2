@@ -32,16 +32,3 @@ services:
     ports:
     - target: 5003
       published: 5003
-
-  
-#  nginx:
- #   container_name: nginx:alpine 
-  #  build: ./nginx
-   # image: ope079/nginx:alpine
-    #ports:
-    #- "80:80"
-  #  depends_on:
-   # - frontend
-  #  - backend1
-  #  - backend2
-  #  - backend3
