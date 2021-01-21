@@ -6,8 +6,8 @@ from io import StringIO
 from csv import reader 
 import builtins
 
-from application import app
-from application.routes import get_prediction1
+from backend1.application import app
+from backend1.application.routes import get_prediction1
 import pandas as pd
 
 class TestBase(TestCase):
