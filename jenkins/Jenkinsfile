@@ -9,7 +9,7 @@ pipeline{
         SECRET_KEY = credentials("SECRET_KEY")
     }
     stages{
-        
+
         stage("Test"){
             steps{
                 sh "bash jenkins/test.sh"
@@ -34,8 +34,8 @@ pipeline{
     }
     post {
         always {
-            junit 'junit.xml'
-            cobertura coberturaReportFile: 'coverage.xml', failNoReports: false
+            junit '**/junit.xml'
+            cobertura coberturaReportFile: '**/coverage.xml', failNoReports: false, failUnstable: false, onlyStable:false
         }
     }
     
