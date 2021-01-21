@@ -22,3 +22,14 @@ class TestFinalResult(TestBase):
         previous_price = 4
         response = self.client.post(url_for('get_final_result'), json = {"price" : [prediction1,prediction2,current_price,previous_price]})
         self.assertIn(b'4' ,response.data)
+
+
+class TestFinalResult_Buy(TestBase):
+     def test_final_result_Buy(self):
+        predict_data = [4,4,4,2]
+        prediction1 = 4
+        prediction2 = 4
+        current_price = 4
+        previous_price = 2
+        response = self.client.post(url_for('get_final_result'), json = {"price" : [prediction1,prediction2,current_price,previous_price]})
+        self.assertIn(b'2' ,response.data)
