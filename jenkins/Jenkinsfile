@@ -9,7 +9,11 @@ pipeline{
         SECRET_KEY = credentials("SECRET_KEY")
     }
     stages{
-        
+        stage("Test"){
+            steps{
+                sh "skip"
+            }
+        }
         stage("Build and Push Images"){
             steps{
                 sh "bash jenkins/build_images.sh"
@@ -24,6 +28,12 @@ pipeline{
             steps{
                 sh "bash jenkins/deploy_stack.sh"
             }
+        }
+    }
+    post {
+        always {
+            junit 'junit.xml'
+            cobertura coberturaReportFile: 'coverage.xml', failNoReports: false
         }
     }
     
