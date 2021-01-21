@@ -9,7 +9,7 @@ services:
       SECRET_KEY: ${SECRET_KEY}
     ports:
     - target: 5000
-      published: 5000
+ #     published: 5000
       protocol: tcp
   backend1:
     container_name: sfia-task-2_backend1
