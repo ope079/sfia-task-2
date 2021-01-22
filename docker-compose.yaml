@@ -3,32 +3,32 @@ services:
   frontend:
     container_name: sfia-task-2_frontend
     build: ./frontend
-    image: ope079/python-frontend:latest
+    image: ope079/python-frontend:${version}
     environment:
       DATABASE_URI: ${DATABASE_URI}
       SECRET_KEY: ${SECRET_KEY}
+      app_version: ${version}
     ports:
     - target: 5000
       published: 5000
       protocol: tcp
+    deploy:
+      replicas: ${replicas}
   backend1:
     container_name: sfia-task-2_backend1
     build: ./backend1
-    image: ope079/python-backend1:latest
-    ports:
-    - target: 5001
-      published: 5001  
+    image: ope079/python-backend1:${version}
+    deploy:
+      replicas: ${replicas} 
   backend2:
     container_name: sfia-task-2_backend2
     build: ./backend2
-    image: ope079/python-backend2:latest
-    ports:
-    - target: 5002
-      published: 5002    
+    image: ope079/python-backend2:${version}
+    deploy:
+      replicas: ${replicas}   
   backend3:
     container_name: sfia-task-2_backend3
     build: ./backend3
-    image: ope079/python-backend3:latest
-    ports:
-    - target: 5003
-      published: 5003
+    image: ope079/python-backend3:${version}
+    deploy:
+      replicas: ${replicas}

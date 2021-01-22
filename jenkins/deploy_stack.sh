@@ -3,5 +3,6 @@ scp -i ~/.ssh/ansible_id_rsa docker-compose.yaml jenkins@swarm-manager:/home/jen
 ssh -i ~/.ssh/ansible_id_rsa jenkins@swarm-manager << EOF
     export DATABASE_URI=${DATABASE_URI}
     export SECRET_KEY=${SECRET_KEY}
+    export replicas=${replicas}
     docker stack deploy --compose-file /home/jenkins/docker-compose.yaml sfia-task-2
 EOF

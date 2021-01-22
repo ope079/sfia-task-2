@@ -1,24 +1,31 @@
 pipeline{
     agent any
     environment{
-        VERSION = "1.${BUILD_ID}"
+        version = "v1"
         DATABASE_URI = credentials("DATABASE_URI")
-        TEST_SECRET_KEY = "test"
         CHROMEDRIVER_PATH = "/home/jenkins/chromedriver"
         AUTHOR = "ope079"
+        rollback = 'false'
+        replicas = 5
         SECRET_KEY = credentials("SECRET_KEY")
     }
     stages{
 
         stage("Test"){
             steps{
-                sh "bash jenkins/test.sh"
+                if(env.rollback == 'false'){
+                    sh "bash jenkins/test.sh"
+                }
+                
             }
         }
         
         stage("Build and Push Images"){
             steps{
-                sh "bash jenkins/build_images.sh"
+                if (env.rollback == 'false'){
+                    sh "bash jenkins/build_images.sh"
+                }
+                
             }
         }
         stage("Configuration Management"){

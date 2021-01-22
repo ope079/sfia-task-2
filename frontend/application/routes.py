@@ -2,6 +2,7 @@ from application import app, db
 from application.forms import Form
 from application.models import Predictions 
 from flask import render_template, request, redirect, url_for
+from os import getenv
 import requests
 import json
 
@@ -10,7 +11,7 @@ import json
 def home():
     form = Form()
     result = Predictions.query.order_by(Predictions.id.desc()).limit(1).all()
-    return render_template("index.html", title="Home", form=form, result=result)
+    return render_template("index.html", title="Home", form=form, result=result, app_version=getenv("APP_VERSION"))
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -27,10 +28,10 @@ def post_prediction():
     prediction2 = requests.get('http://sfia-task-2_backend2:5002/get_prediction2', json={"price":price_list})
     prediction2 = float(prediction2.json())
     final_result = requests.get('http://sfia-task-2_backend3:5003/final_result', json= {"price":[prediction1,prediction2,current_price,previous_price]})
-    new_prediction = Predictions(final_result=final_result.text)
+    new_prediction = Predictions(final_result= f"{ticker} -- {final_result.text}")
     db.session.add(new_prediction)
     db.session.commit()
-    return redirect(url_for("home", form = form))
+    return redirect(url_for("home", form = form, app_version=getenv("APP_VERSION")))
 
 
 
@@ -38,4 +39,4 @@ def post_prediction():
 def get_prediction():
     form = Form()
     final_results = Predictions.query.order_by(Predictions.id.desc()).limit(5).all()
-    return render_template("predictions.html", final_results = final_results, form = form)
+    return render_template("predictions.html", final_results = final_results, form = form, app_version=getenv("APP_VERSION"))

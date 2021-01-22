@@ -9,6 +9,7 @@ ansible_python_interpreter=/usr/bin/python3
 
 [workers]
 swarm-worker
+10.132.0.2
 
 [workers:vars]
 ansible_user=jenkins
