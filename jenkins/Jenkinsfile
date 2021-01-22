@@ -5,7 +5,7 @@ pipeline{
         DATABASE_URI = credentials("DATABASE_URI")
         CHROMEDRIVER_PATH = "/home/jenkins/chromedriver"
         AUTHOR = "ope079"
-        rollback = 'true'
+        rollback = 'false'
         replicas = 5
         SECRET_KEY = credentials("SECRET_KEY")
     }
@@ -13,19 +13,21 @@ pipeline{
 
         stage("Test"){
             steps{
-                if(env.rollback == 'false'){
-                    sh "bash jenkins/test.sh"
+                script{
+                    if(env.rollback == 'false'){
+                        sh "bash jenkins/test.sh"
+                    }
                 }
-                
             }
         }
         
         stage("Build and Push Images"){
             steps{
-                if (env.rollback == 'false'){
-                    sh "bash jenkins/build_images.sh"
+                    script{
+                    if (env.rollback == 'false'){
+                        sh "bash jenkins/build_images.sh"
+                    }   
                 }
-                
             }
         }
         stage("Configuration Management"){

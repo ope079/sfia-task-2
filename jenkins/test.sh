@@ -4,11 +4,11 @@
 sudo apt-get update
 sudo apt-get install -y python3-pip python3-venv unzip chromium-browser
 
-# Install chromedriver
-#rm -rf $CHROMEDRIVER_PATH
-#mkdir $CHROMEDRIVER_PATH
-#wget -P $CHROMEDRIVER_PATH https://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.zip
-#unzip $CHROMEDRIVER_PATH/chromedriver_linux64.zip -d /home/jenkins/chromedriver
+Install chromedriver
+rm -rf $CHROMEDRIVER_PATH
+mkdir $CHROMEDRIVER_PATH
+wget -P $CHROMEDRIVER_PATH https://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.zip
+unzip $CHROMEDRIVER_PATH/chromedriver_linux64.zip -d /home/jenkins/chromedriver
 
 # Test frontend
 cd frontend
