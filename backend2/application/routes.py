@@ -10,7 +10,7 @@ def get_prediction2():
     price_list = request.json["price"]
     sd = (price_list[1])
     current_price = (price_list[0])
-    random_price = random.uniform((current_price - sd),(current_price + sd))
+    random_price = random.randint((current_price - sd),(current_price + sd)) * 100
     return Response(str(random_price), mimetype='text/plain')
 
     
