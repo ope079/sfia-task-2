@@ -14,7 +14,6 @@ from application import app
 from application.routes import get_prediction1
 from statsmodels.tsa.arima.model import ARIMA
 import pandas as pd
-import requests_mock
 
 class TestBase(TestCase):
     def create_app(self):
