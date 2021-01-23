@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block body %}
+<br><br>
+<form action='' method='POST'>
+    {{form.hidden_tag()}}
+    {{ form.ticker.label }} {{ form.ticker }} <br><br>
+    {{form.submit}}
+</form>
+
+<h1>Last Result</h1>
+    {% for res in result %}
+       <h3> {{ res.final_result }} </h3> 
+    {% endfor %}
+<br>
+<br>
+<h2>Last 5 Results</h2>
+<form action="{{ url_for('get_prediction') }}">
+            <input type=submit value="Get last 5 Predictions">
+</form><br><br>
+<h6>App Version: {{app_version}}</h6>
+
+{% endblock body %}

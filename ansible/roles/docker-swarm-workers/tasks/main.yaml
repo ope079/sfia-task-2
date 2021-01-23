@@ -1,0 +1,13 @@
+---
+    - name: add jenkins user
+      user:
+        name: jenkins
+        groups: docker
+        shell: /bin/bash
+        append: true
+    - name: Add worker to manager node
+      community.general.docker_swarm:
+        state: join
+        advertise_addr: "{{ inventory_hostname }}"
+        join_token: "{{ hostvars['10.154.0.27']['swarm_info']['swarm_facts']['JoinTokens']['Worker'] }}"
+        remote_addrs: [ '10.154.0.27:2377' ]
