@@ -102,7 +102,7 @@ You can also see the last five predictions at the click of a botton:
 For the future, this app can be highly improved. A form in the homepage would make the app more interactive and allow for more information to be requested about the ticker. This would mean linking to more apis calls. The overall appearance of the app could be greatluy improved. The predictions could be more robust as opposed to using a simple ARIMA model from statstools.
 
 ## Authors
-* Ope Orekoya
+* Opeoluwa Orekoya
 
 
 [ed]: https://imgur.com/9J7aspH.png
