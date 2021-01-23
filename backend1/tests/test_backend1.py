@@ -3,9 +3,7 @@ from flask import url_for
 from flask_testing import TestCase
 import unittest.mock
 from unittest.mock import patch, mock_open, MagicMock, call
-import io
-import csv 
-import builtins
+
 import random
 import numpy as np
 
