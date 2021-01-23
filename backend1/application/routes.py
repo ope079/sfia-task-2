@@ -45,8 +45,8 @@ def get_prediction1():
 
                 current_price = int(current_price)
                 sd = int(sd)
-                prediction = int(prediction)
-                previous_price = int(previous_price)
+                prediction = int(prediction) * 100
+                previous_price = int(previous_price) * 100
 
                 information = {'response' : [current_price, sd, prediction, previous_price]}
 
