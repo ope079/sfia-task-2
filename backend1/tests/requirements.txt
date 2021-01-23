@@ -3,3 +3,4 @@ Werkzeug==0.16.1
 requests
 statsmodels
 pandas
+mock

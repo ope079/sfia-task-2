@@ -6,7 +6,6 @@ from unittest.mock import patch, mock_open, MagicMock, call
 import io
 import csv 
 import builtins
-import mock
 import random
 import numpy as np
 
@@ -14,7 +13,6 @@ from application import app
 from application.routes import get_prediction1
 from statsmodels.tsa.arima.model import ARIMA
 import pandas as pd
-import requests_mock
 
 class TestBase(TestCase):
     def create_app(self):
