@@ -2,8 +2,6 @@
 
 
 
-
-
 ## The Brief
 Below is my implementation of the SFIA Devops Core Practical Project. In this project, my task is to create an application composed of a service-oriented architecture which runs 4 APIs as different services. The core service, and the frontend is Service 1, and it is responsible for communicating with the three others. Services 2 and 3 will act as random object generators, and service four will combine their results and this will be presented to the user on the front end. The application must run as a CD pipeline making use of containerisation, a CI server and an orchestration tool. And the app must run via a reverse proxy as a load balancer.
 
@@ -28,7 +26,7 @@ To achieve the above aims, I have chosen a simple stock prediction app that allo
 Pictured below is the simple entity diagram (ED) showing the structure of the database.
 As can be seen it is a very simple table with two rows, the id row and the final_result row which persists the final front end display.
 
-![ED][ed]
+![ed][ed]
 
 ### Service diagram
 Pictured below are the existing services in the app and how they communicate with each other.
@@ -77,6 +75,15 @@ Below is the final risk assessment:
 ## Testing
 pytest is used for all testing in the project. The testing achieved high coverage due to the simplicity of the app as can be seen in the diagrams below.
 
+![testResult1][testResult1]
+
+![testResult2][testResult2]
+
+![testResult3][testResult3]
+
+![testResult4][testResult4]
+
+
 ![coverage][coverage]
 
 
@@ -88,11 +95,28 @@ The app has a simple design as can be seen below. You are instructed to input a 
 
 You can also see the last five predictions at the click of a botton:
 
-![frontd2][frontend2]
+![frontend2][frontend2]
 
 ## Future Improvements
 
 For the future, this app can be highly improved. A form in the homepage would make the app more interactive and allow for more information to be requested about the ticker. This would mean linking to more apis calls. The overall appearance of the app could be greatluy improved. The predictions could be more robust as opposed to using a simple ARIMA model from statstools.
 
+## Authors
+* Ope Orekoya
 
 
+[ed]: https://imgur.com/9J7aspH.png
+[services]: https://imgur.com/QGzEJ2d.png
+[ci]: https://imgur.com/jmBbWLj.jpg
+[buildstages]: https://imgur.com/y7ZVbkW.png
+[trello1]: https://imgur.com/TKwuhdX.png
+[trello2]: https://imgur.com/jNBU1He.png
+[risk1]: https://imgur.com/TVPGIXH.png
+[risk2]: https://imgur.com/C2DUvj7.png
+[testresult1]: https://imgur.com/9b4xkXl.png
+[testresult2]: https://imgur.com/gqhzNRz.png
+[testresult3]: https://imgur.com/J6r9aFa.png
+[testresult4]: https://imgur.com/NbfSt3W.png
+[coverage]: https://imgur.com/bmf58DR.png
+[frontend1]: https://imgur.com/hj0fArU.png
+[frontend2]: https://imgur.com/PkAxZA5.png
