@@ -1,7 +1,9 @@
 pipeline{
     agent any
     environment{
+
         version = "v2"
+
         DATABASE_URI = credentials("DATABASE_URI")
         CHROMEDRIVER_PATH = "/home/jenkins/chromedriver"
         AUTHOR = "ope079"

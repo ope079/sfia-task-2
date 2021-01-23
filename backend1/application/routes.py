@@ -39,6 +39,7 @@ def get_prediction1():
                 current_price = x[-2:-1]
 
                 model = SARIMAX(x[ :-2], trend='c', order=(10,1,1))
+
                 model_fit = model.fit()
 
                 prediction = model_fit.forecast()
@@ -47,6 +48,7 @@ def get_prediction1():
                 sd = int(sd)
                 prediction = int(prediction) * 100
                 previous_price = int(previous_price) * 100
+
 
                 information = {'response' : [current_price, sd, prediction, previous_price]}
 

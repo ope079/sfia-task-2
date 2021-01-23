@@ -25,7 +25,9 @@ class TestResponse(TestBase):
             ticker = "FB1"
             m.return_value = d1
             response = self.client.get(url_for("get_prediction1"))
+
             self.assertIn(b'{"response":[268,10,275,271]}', response.data)
+
 
 class TestResponseZero(TestBase):
     def test_get_pred_zero(self):
