@@ -3,10 +3,7 @@ from flask import url_for
 from flask_testing import TestCase
 import unittest.mock
 from unittest.mock import patch, mock_open, MagicMock, call
-import io
-import csv 
-import builtins
-import mock
+
 import random
 import numpy as np
 
@@ -19,8 +16,8 @@ class TestBase(TestCase):
     def create_app(self):
         return app
 
-d1 = pd.read_csv('/home/jenkins/.jenkins/workspace/sfia-task-2@2/backend1/tests/csv/FB1.csv', header=0)
-value = pd.read_csv('/home/jenkins/.jenkins/workspace/sfia-task-2@2/backend1/application/csv/.csv', header=0)
+d1 = pd.read_csv('/home/jenkins/.jenkins/workspace/sfia-task-2/backend1/tests/csv/FB1.csv', header=0)
+value = pd.read_csv('/home/jenkins/.jenkins/workspace/sfia-task-2/backend1/application/csv/.csv', header=0)
 
 class TestResponse(TestBase):
     def test_get_pred(self):
