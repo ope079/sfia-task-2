@@ -51,7 +51,7 @@ The build stages are listed below:
 ![buildstages][buildstages]
 
 ## Project Tracking
-The kanban board used for project tracking was Trello. A link to the board can be found here:
+The kanban board used for project tracking was Trello. A link to the board can be found here: https://trello.com/b/i5Hrx3RV/sfia-project-2
 
 ![trello1][trello1]
 
@@ -63,12 +63,12 @@ Above is the final kanban board. The elements of the project move from lwft to r
 
 
 ## Risk Assessment
-Below is the initial risk assessment for the project. A link can be found here:
+Below is the initial risk assessment for the project.
 
 
 ![risk1][risk1]
 
-Below is the final risk assessment:
+Below is the final risk assessment. A copy can be found here: https://docs.google.com/spreadsheets/d/1zRGLGgBXz7Fj5FdEbctpdw2be46ycWuGCQOBGyRIWPg/edit?usp=sharing
 
 ![risk2][risk2]
 
