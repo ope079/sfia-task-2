@@ -26,7 +26,7 @@ def post_prediction():
     prediction1 = price_prediction["response"][2]
     previous_price = price_prediction["response"][3]
     prediction2 = requests.get('http://sfia-task-2_backend2:5002/get_prediction2', json={"price":price_list})
-    prediction2 = float(prediction2.json())
+    prediction2 = int(prediction2.json())
     final_result = requests.get('http://sfia-task-2_backend3:5003/final_result', json= {"price":[prediction1,prediction2,current_price,previous_price]})
     new_prediction = Predictions(final_result= f"{ticker} -- {final_result.text}")
     db.session.add(new_prediction)
