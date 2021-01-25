@@ -18,6 +18,8 @@ services:
     container_name: sfia-task-2_backend1
     build: ./backend1
     image: ope079/python-backend1:${version}
+    environment:
+      x-rapidapi-key: ${x-rapidapi-key}
     deploy:
       replicas: ${replicas} 
   backend2:

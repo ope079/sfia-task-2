@@ -3,9 +3,8 @@ pipeline{
     environment{
 
         version = "v2"
-
         DATABASE_URI = credentials("DATABASE_URI")
-        CHROMEDRIVER_PATH = "/home/jenkins/chromedriver"
+        x-rapidapi-key = credentials("x-rapidapi-key")
         AUTHOR = "ope079"
         rollback = 'false'
         replicas = 5

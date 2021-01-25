@@ -3,6 +3,7 @@ from flask import request, Response, jsonify
 from json import dumps
 import requests
 import pandas as pd
+from os import getenv
 from statsmodels.tsa.arima.model import ARIMA
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 
@@ -16,7 +17,7 @@ def get_prediction1():
         #ticker = "FB"
         querystring = {"function":"TIME_SERIES_DAILY","symbol":f'{ticker}',"outputsize":"compact","datatype":"csv"}
         headers = {
-            'x-rapidapi-key': "12226b39a9mshfa23fe1cdb616ccp10fb0bjsnd8f20f98485c",
+            'x-rapidapi-key': getenv("x-rapidapi-key"),
             'x-rapidapi-host': "alpha-vantage.p.rapidapi.com"
             }
         response = requests.request("GET", url, headers=headers, params=querystring)
