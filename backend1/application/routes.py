@@ -38,15 +38,21 @@ def get_prediction1():
                 previous_price = x[-3:-2]
                 current_price = x[-2:-1]
 
-                model = ARIMA(x[ :-2], order=(5,1,2))
+
+                model = SARIMAX(x[ :-2], trend='c', order=(10,1,1))
+
+
                 model_fit = model.fit()
 
                 prediction = model_fit.forecast()
 
-                current_price = float(current_price)
-                sd = float(sd)
-                prediction = float(prediction)
-                previous_price = float(previous_price)
+
+                current_price = int(current_price)
+                sd = int(sd)
+                prediction = int(prediction) * 100
+                previous_price = int(previous_price) * 100
+
+
 
                 information = {'response' : [current_price, sd, prediction, previous_price]}
 
