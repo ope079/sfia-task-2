@@ -115,7 +115,7 @@ For the future, this app can be highly improved. A form in the homepage would ma
 [risk2]: https://imgur.com/C2DUvj7.png
 [testresult1]: https://imgur.com/9b4xkXl.png
 [testresult2]: https://imgur.com/gqhzNRz.png
-[testresult3]: https://imgur.com/J6r9aFa.png
+[testresult3]: https://imgur.com/hwxRmrT.png
 [testresult4]: https://imgur.com/NbfSt3W.png
 [coverage]: https://imgur.com/bmf58DR.png
 [frontend1]: https://imgur.com/hj0fArU.png
