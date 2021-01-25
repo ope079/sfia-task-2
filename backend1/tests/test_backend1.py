@@ -26,7 +26,9 @@ class TestResponse(TestBase):
             m.return_value = d1
             response = self.client.get(url_for("get_prediction1"))
 
+
             self.assertIn(b'{"response":[268,10,27500,27100]}', response.data)
+
 
 
 class TestResponseZero(TestBase):

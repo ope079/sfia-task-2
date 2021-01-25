@@ -2,6 +2,7 @@ pipeline{
     agent any
     environment{
 
+
         version = "v2"
 
         DATABASE_URI = credentials("DATABASE_URI")
